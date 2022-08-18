@@ -1,0 +1,7 @@
+ikuzo_sendinblue:
+  form:
+    title: SendInBlue configuration
+    api_key: API key
+    list_id: List ID
+    is_active: Activated
+    is_not_active: Not activated

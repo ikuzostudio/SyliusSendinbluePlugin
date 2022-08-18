@@ -1,0 +1,18 @@
+<div class="ui hidden divider"></div>
+
+<h4 class="ui top attached large header">{{ 'ikuzo_sendinblue.form.title'|trans }}</h4>
+<div class="ui attached segment">
+    {{ form_errors(form) }}
+
+    {{ form_row(form.isSendinblueActive) }}
+
+    <div class="two fields">
+        <div class="field">
+            {{ form_row(form.sendinblueApiKey) }}
+        </div>
+        
+        <div class="field">
+            {{ form_row(form.sendinblueListId) }}
+        </div>
+    </div>
+</div>

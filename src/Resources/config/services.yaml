@@ -1,0 +1,26 @@
+services:
+  ikuzo_sylius_sendinblue.event_subscriber.customer_subscriber:
+    class: Ikuzo\SyliusSendinbluePlugin\EventSubscriber\CustomerSubscriber
+    tags:
+      - { name: 'kernel.event_subscriber' }
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@messenger.default_bus'
+      - '@sylius.context.channel'
+
+  ikuzo_sylius_sendinblue.service.sendinblue:
+    class: Ikuzo\SyliusSendinbluePlugin\Services\SendinblueService
+    arguments:
+      - '@sylius.http_client'
+      - '@sylius.context.channel'
+    
+  ikuzo_sylius_sendinblue.form.extension.channel:
+    class: Ikuzo\SyliusSendinbluePlugin\Form\Extension\ChannelTypeExtension
+    tags: ['form.type_extension']
+
+  ikuzo_sylius_sendinblue.message_handler.send_contact_to_sendinblue_handler:
+    class: Ikuzo\SyliusSendinbluePlugin\MessageHandler\SendContactToSendinblueHandler
+    arguments:
+      - '@sylius.repository.customer'
+      - '@ikuzo_sylius_sendinblue.service.sendinblue'
+    tags: ['messenger.message_handler']
