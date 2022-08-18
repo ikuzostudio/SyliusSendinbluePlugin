@@ -1,6 +1,6 @@
 ikuzo_sendinblue:
   form:
-    title: SendInBlue configuration
+    title: SendInBlue - Configuration
     api_key: API key
     list_id: List ID
     is_active: Activated
