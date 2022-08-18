@@ -2,6 +2,6 @@ sylius_ui:
   events:
     sylius.admin.channel.form.second_column_content:
       blocks:
-        avis_verifies:
+        sendinblue_config:
           template: '@IkuzoSyliusSendinbluePlugin/Channel/_form.html.twig'
           priority: 5
