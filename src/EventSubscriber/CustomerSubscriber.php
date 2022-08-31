@@ -48,7 +48,7 @@ class CustomerSubscriber implements EventSubscriberInterface
 
         if ($event->getSubject() instanceof CustomerInterface) {
             $customer = $event->getSubject();
-            if($customer->getSubscribedToNewsletter()) {
+            if($customer->isSubscribedToNewsletter()) {
                 $this->bus->dispatch(new SendContactToSendinblue($customer->getId(), 'POST'));
             }
         }
